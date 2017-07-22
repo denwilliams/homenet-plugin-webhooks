@@ -1,0 +1,25 @@
+{
+  "name": "@homenet/plugin-webhooks",
+  "version": "0.0.1",
+  "description": "Runs commands from webhooks",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "Den Williams",
+  "license": "MIT",
+  "keywords": [
+    "homenet",
+    "homenet4-plugin"
+  ],
+  "homenet4": {
+    "plugins": [
+      "WebhookPluginLoader"
+    ]
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@homenet/core-tsd": "^4.0.0-beta.8b"
+  }
+}
