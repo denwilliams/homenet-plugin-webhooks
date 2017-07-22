@@ -1,7 +1,11 @@
-import {IPluginLoader, ILogger, IConfig, IEventBus, IStatsTarget} from '@homenet/core';
+import {IPluginLoader, ILogger, IConfig, IEventBus, ICommandManager} from '@homenet/core';
+import * as express from 'express';
 
 interface IWebhookConfig extends IConfig {
-  webhooks: any
+  webhooks: {
+    port: number;
+    hooks: Array<any>;
+  }
 }
 
 export function create(annotate: any): { WebhookPluginLoader: new(...args: any[]) => IPluginLoader } {
@@ -10,14 +14,23 @@ export function create(annotate: any): { WebhookPluginLoader: new(...args: any[]
     constructor(
       @annotate.service('IConfig') private config: IWebhookConfig,
       @annotate.service('ILogger') private logger: ILogger,
+      @annotate.service('ICommandManager') private commands: ICommandManager,
       @annotate.service('IEventBus') private eventBus: IEventBus
     ) {
     }
 
     load() : void {
+      if (!this.config.webhooks) return;
+
       this.logger.info('Loading webhooks');
 
-      // TODO: start express
+      const app = express();
+      this.config.webhooks.hooks.forEach(hook => {
+        app.post(hook.id, (req, res) => {
+          this.commands.run(hook.target, hook.command, hook.args);
+        });
+      });
+      app.listen(this.config.webhooks.port);
     }
   }
 
