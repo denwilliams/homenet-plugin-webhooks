@@ -1,6 +1,6 @@
 {
   "name": "@homenet/plugin-webhooks",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Runs commands from webhooks",
   "main": "lib/index.js",
   "scripts": {
