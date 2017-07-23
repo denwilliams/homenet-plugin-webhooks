@@ -22,5 +22,13 @@
   },
   "devDependencies": {
     "@homenet/core-tsd": "^4.0.0-beta.8b"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/denwilliams/homenet-plugin-webhooks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/denwilliams/homenet-plugin-webhooks/issues"
+  },
+  "homepage": "https://github.com/denwilliams/homenet-plugin-webhooks#readme"
 }
