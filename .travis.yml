@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '4'
+before_install:
+- npm install
+- npm install -g typescript@2.4.1
+- tsc
+deploy:
+  provider: npm
+  email: work@denwilliams.net
+  on:
+    tags: true
+    repo: denwilliams/homenet-plugin-webhooks
+  api_key:
+    secure: hyDkhv2/6SGLetn4t1I59gIGe4ap3BxjUV/eVYenvHwr/znp8sG8b110+1ZbKvBQAIDjah4MwZDYW9s1Aq+fHuL1bGHkm+9qiMRHgTArxf0ibM6q4ZkevVnv7CUc2vxBeVfdHlGxQW21N98/zb07jyPkz8My2782nhQN92Tb0Bl1wu3K29K1EEPTu/Zgij8pQ7VFfziRlWsqJ+Ryuev9/2xiMfZIQjdZPnwRlNUgyfg0q7unVPBDtFMlemZZWOKP3meh1QPdix2te5tY+dAajo4TFfL0UB/WTrOMuN3aG/tij+I0+roXywKsfJk/ZGxgS9szHiTYkwazuro0YT+ZbfCqfw333nByBI3Xlp+efa6oEpWocdntyM1OXcBVSHDrM5Rj2wEHYVRzwL5KXZGGRLSHNysPbJIFNB4VVvicc13O/SnrbHpkrMtA26qF3gTsfxrXpa/GyPicWARRneK5es+3r0nnJOtHV7pCf2BQ4vnj7Fa0r+ZGXrJ95U0xWTbWux484Pu273Xl3BnfrMGlyVYurY0+zS7VgFNDHfRTJ6+usns1FzKaXqwKGPOh2sL8qH3BD4N8tb5HX8u0dNVjpCIOlmot6p7amUlMWkR36lZUVL7DJza6fXEEc6H4aBqILXETF/tWRw/i1LojJnjd4YRkrAJ1i1CbnUdgPBNAgWI=
